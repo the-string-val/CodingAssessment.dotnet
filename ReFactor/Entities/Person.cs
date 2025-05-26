@@ -1,7 +1,9 @@
+using System;
+
 namespace CodingAssessment.Refactor
 {
 
-    // Separated class file for Person and BirthingUnit to follow best practices.
+    // Added Person class to encapsulate person-related properties
     // Renamed the class from People to Person for clarity.
     public class Person
     {

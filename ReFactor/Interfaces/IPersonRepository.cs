@@ -30,10 +30,9 @@ namespace CodingAssessment.Refactor
         /// Gets a person by their name.
         /// </summary>
         /// <param name="name">name of a person</param>
-        /// <param name="olderThanThirty">Optional parameter to filter by age</param>
         /// <returns>Returns a List of Person with given name</returns>
 
-        List<Person> GetPersonByName(string name, bool olderThanThirty = false)
+        List<Person> GetPersonByName(string name)
 
 
         /// <summary>
@@ -47,13 +46,6 @@ namespace CodingAssessment.Refactor
         /// </summary>
         /// <param name="id">Person Id</param>
         void DeletePerson(string id);
-
-        /// <summary>
-        /// Retrieves a list of people.
-        /// </summary>
-        /// <param name="count">The number of people to retrieve.</param>
-        /// <returns>A list of Person</returns>
-        List<Person> GetPersonsByCount(int count);
 
     }
 }
