@@ -30,7 +30,7 @@ namespace Utility.Valocity.ProfileHelper
         }
     }
 
-    //
+    // 
     public class BirthingUnit
     {
         // [Remark]: the comment "MaxItemsToRetrieve" is not relevant
@@ -66,13 +66,18 @@ namespace Utility.Valocity.ProfileHelper
                     // [Questions]: Is the intention to have a random name generator or should we fetch names from a proper Database or API?]
                     string name = string.Empty;
                     var random = new Random();
-                    if (random.Next(0, 1) == 0) {
+                    // [Code Smell]: The random.next(0, 1) will always return 0
+                    if (random.Next(0, 1) == 0)
+                    {
                         name = "Bob";
                     }
-                    else {
+                    else
+                    {
                         name = "Betty";
                     }
                     // Adds new people to the list
+
+                    // [Code Smell]: The Logic for generating the date of birth is not clear.]
                     _people.Add(new People(name, DateTime.UtcNow.Subtract(new TimeSpan(random.Next(18, 85) * 356, 0, 0, 0))));
                 }
                 catch (Exception e)
