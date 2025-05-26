@@ -23,6 +23,9 @@ namespace Utility.Valocity.ProfileHelper
         // [Code Smell]: Not clear why we need to set a default date of birth for people under 16.
         // [Question]: Please clarify the purpose of this constructor.
         public People(string name) : this(name, Under16.Date) { }
+
+        // [Code Smell]: dob parameter is of type DateTime, but it should be DateTimeOffset for consistency.
+        // [Feedback]: Consider using DateTimeOffset for DOB to maintain consistency with the rest of the code.]
         public People(string name, DateTime dob)
         {
             Name = name;
