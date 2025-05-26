@@ -14,7 +14,7 @@ namespace CodingAssessment.Refactor
         {
         }
 
-        public People(string name, DateTime dob)
+        public People(string name, DateTimeOffset dob)
         {
             Name = name;
             DOB = dob;
