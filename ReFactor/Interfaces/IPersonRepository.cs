@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+
 
 namespace CodingAssessment.Refactor
 {
@@ -25,14 +25,14 @@ namespace CodingAssessment.Refactor
         /// </summary>
         /// <returns></returns>
         List<Person> GetAllPersons();
-        
+
         /// <summary>
         /// Gets a person by their name.
         /// </summary>
         /// <param name="name">name of a person</param>
         /// <returns>Returns a List of Person with given name</returns>
 
-        List<Person> GetPersonByName(string name)
+        List<Person> GetPersonByName(string name);
 
 
         /// <summary>
