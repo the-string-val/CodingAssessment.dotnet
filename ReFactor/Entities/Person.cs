@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace CodingAssessment.Refactor
 {
@@ -10,7 +12,9 @@ namespace CodingAssessment.Refactor
 
         // Added Id property to uniquely identify each person
         public string Id { get; private set; }
-        public string Name { get; private set; }
+
+        [MaxLength(255)]
+        public string Name { get; set; }
         public DateTimeOffset DateOfBirth { get; private set; }
 
         /// <summary>
@@ -19,7 +23,7 @@ namespace CodingAssessment.Refactor
         /// <param name="name">The name of the person</param>
         /// <param name="dateOfBirth">The date of birth of the person</param>
         /// <exception cref="ArgumentException"></exception>
-        public People(string name, DateTimeOffset dateOfBirth)
+        public Person(string name, DateTimeOffset dateOfBirth)
         {
             // Added check for null or empty name 
             if (string.IsNullOrWhiteSpace(name))
@@ -31,8 +35,9 @@ namespace CodingAssessment.Refactor
             {
                 throw new ArgumentException("Date of birth cannot be in the future.", nameof(dateOfBirth));
             }
+            Id = Guid.NewGuid().ToString();
             Name = name;
-            DOB = dateOfBirth;
+            DateOfBirth = dateOfBirth;
         }
 
         /// <summary>
@@ -41,9 +46,10 @@ namespace CodingAssessment.Refactor
         /// </summary>
         /// <param name="name">name of the person</param>
 
-        public People(string name) : this(name, DateTimeOffset.UtcNow.AddYears(-15))
+        public Person(string name) : this(name, DateTimeOffset.UtcNow.AddYears(-15))
         {
         }
 
     }
+
 }

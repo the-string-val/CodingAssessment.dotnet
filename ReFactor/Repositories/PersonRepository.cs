@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using CodingAssessment.Refactor.Person;
 
-namespace CodingAssessment.Refactor
+
+namespace CodingAssessment.Refactor.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
@@ -42,7 +42,7 @@ namespace CodingAssessment.Refactor
             {
                 throw new ArgumentException("Name cannot be null or empty.", nameof(name));
             }
-            return _people.FindAll(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase) ?? new List<Person>([]));
+            return _people.FindAll(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase)) ?? new List<Person>([]);
         }
 
         public void UpdatePerson(Person person)
@@ -63,14 +63,14 @@ namespace CodingAssessment.Refactor
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                throw new ArgumentException("Id can not be null or empty.", nameof(id))
+                throw new ArgumentException("Id can not be null or empty.", nameof(id));
             }
-            var index = _people.FindIndex(p => p.Id == person.Id);
+            var index = _people.FindIndex(p => p.Id == id);
             if (index == -1)
             {
-                throw new KeyNotFoundException($"Person with Id {person.Id} does not exist");
+                throw new KeyNotFoundException($"Person with Id {id} does not exist");
             }
-            _people.Remove(person);
+            _people.Remove(_people[index]);
         } 
     }
 }
