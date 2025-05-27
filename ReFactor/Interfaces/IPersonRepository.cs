@@ -1,3 +1,4 @@
+#nullable enable
 using System.Collections.Generic;
 
 
@@ -18,7 +19,7 @@ namespace CodingAssessment.Refactor
         /// </summary>
         /// <param name="id">Person Id</param>
         /// <returns>Return Person with given Id</returns>
-        Person GetPersonById(string id);
+        Person? GetPersonById(string id);
 
         /// <summary>
         /// Gets all persons in the repository.
