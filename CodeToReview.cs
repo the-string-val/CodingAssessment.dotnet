@@ -98,6 +98,7 @@ namespace Utility.Valocity.ProfileHelper
 /       // [Code Smell]: The method name "GetBobs" is not generic and very specific to "Bob"
         // [Remark]: Consider renaming to "GetPeopleByName" or "GetIndividualsByName".
         // [Feedback]: add a parameter to filter by name, so it can be used for any name also check for "olderThan30" condition whether it is neeeded.
+        // if needed, consider remaining to "GetpeopleByNameAndAge".
         private IEnumerable<People> GetBobs(bool olderThan30)
         {
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
