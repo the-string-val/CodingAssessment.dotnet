@@ -41,6 +41,20 @@ namespace CodingAssessment.Refactor
         }
 
         /// <summary>
+        /// Constructor for creating a a person with an ID, name, and date of birth.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="dateOfBirth"></param>
+
+         public Person(string id, string name, DateTimeOffset dateOfBirth)
+        {
+            Id = id;
+            Name = name;
+            DateOfBirth = dateOfBirth;
+        }
+
+        /// <summary>
         /// Constructor for creating a person with a name, defaulting the date of birth to 15 years ago.
         /// kept for backward compatibility, but should be avoided in new code. 
         /// </summary>
