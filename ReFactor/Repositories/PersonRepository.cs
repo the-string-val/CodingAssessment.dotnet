@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 
@@ -6,11 +7,11 @@ namespace CodingAssessment.Refactor.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        private List<Person> _people;
+        private readonly List<Person> _people;
 
         public PersonRepository()
         {
-            _people = new List<Person>();
+            _people = [];
         }
 
         public void AddPerson(Person person)
@@ -22,7 +23,7 @@ namespace CodingAssessment.Refactor.Repositories
             _people.Add(person);
         }
 
-        public Person GetPersonById(string id)
+        public Person? GetPersonById(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -33,7 +34,7 @@ namespace CodingAssessment.Refactor.Repositories
 
         public List<Person> GetAllPersons()
         {
-            return new List<Person>(_people);
+            return _people;
         }
 
         public List<Person> GetPersonByName(string name)

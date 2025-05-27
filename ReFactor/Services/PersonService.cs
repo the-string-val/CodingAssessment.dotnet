@@ -1,6 +1,6 @@
-using NLog;
 using System;
 using System.Collections.Generic;
+// using Microsoft.Extensions.Logging;
 
 
 namespace CodingAssessment.Refactor
@@ -9,8 +9,9 @@ namespace CodingAssessment.Refactor
     {
         #region Private fields
         private readonly IPersonRepository _personRepository;
-    
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+        // tried adding logger but package was not getting added to the project
+        // private readonly ILogger<PersonService> _logger;
         #endregion
 
         #region Constructor 
@@ -36,7 +37,7 @@ namespace CodingAssessment.Refactor
             catch (Exception ex)
             {
                 // Log exception or handle accordingly
-                logger.Error(ex, "An error occurred while adding a person.");
+               // _logger.LogError(ex, "An error occurred while adding a person.");
                 throw;
             }
         }
@@ -50,7 +51,7 @@ namespace CodingAssessment.Refactor
             catch (Exception ex)
             {
                 // Log exception or handle accordingly
-                logger.Error(ex, "An error occurred while retrieving persons by name.", id);
+                // _logger.LogError(ex, "An error occurred while retrieving persons by id.", id);
                 throw;
             }
         }
@@ -64,7 +65,7 @@ namespace CodingAssessment.Refactor
             catch (Exception ex)
             {
                 // Log exception or handle accordingly
-                logger.Error(ex, "An error occurred while retrieving all persons");
+                // _logger.LogError(ex, "An error occurred while retrieving all persons");
                 throw;
             }
         }
@@ -78,7 +79,7 @@ namespace CodingAssessment.Refactor
             catch (Exception ex)
             {
                 // Log exception or handle accordingly
-                logger.Error(ex, "An error occurred while retrieving persons by name.", name);
+                // _logger.LogError(ex, "An error occurred while retrieving persons by name.", name);
                 throw;
             }
         }
@@ -98,7 +99,7 @@ namespace CodingAssessment.Refactor
             catch (Exception ex)
             {
                 // Log exception or handle accordingly
-                logger.Error(ex, "An error occurred while updating the person with ID {Id}.", person.Id);
+                // _logger.LogError(ex, "An error occurred while updating the person with ID {Id}.", person.Id);
                 throw;
             }
         }
@@ -112,7 +113,7 @@ namespace CodingAssessment.Refactor
             catch (Exception ex)
             {
                 // Log exception or handle accordingly
-                logger.Error(ex, "An error occurred while deleting the person with ID {Id}.", id);
+                // _logger.LogError(ex, "An error occurred while deleting the person with ID {Id}.", id);
                 throw; // Rethrow the same exception to preserve the original stack trace
             }
         }
@@ -141,7 +142,7 @@ namespace CodingAssessment.Refactor
                 }
                 catch (Exception ex)
                 {
-                    logger.Error(ex, "An error occurred while generating and adding a random person.");
+                    // _logger.LogError(ex, "An error occurred while generating and adding a random person.");
                     throw;
                 }
             }
@@ -174,7 +175,7 @@ namespace CodingAssessment.Refactor
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "An error occurred while retrieving persons by name and age.", name, age);
+                // _logger.LogError(ex, "An error occurred while retrieving persons by name and age.", name, age);
                 throw;
             }
         }
@@ -216,7 +217,7 @@ namespace CodingAssessment.Refactor
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "An error occurred while updating the marriage record for person with ID {Id}.", personId);
+                // _logger.LogError(ex, "An error occurred while updating the marriage record for person with ID {Id}.", personId);
                 throw;
             }
         }
